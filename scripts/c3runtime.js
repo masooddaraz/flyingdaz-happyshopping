@@ -634,16 +634,12 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Sprite.Acts.Destroy,
 		C3.Plugins.Sprite.Cnds.OnDestroyed,
 		C3.Plugins.System.Acts.AddVar,
-		C3.Plugins.System.Exps.urlencode,
-		C3.Plugins.TextBox.Exps.Text,
 		C3.Plugins.AJAX.Acts.Post,
+		C3.Plugins.TextBox.Exps.Text,
 		C3.Plugins.Text.Acts.SetVisible,
+		C3.Plugins.TextBox.Cnds.OnTextChanged,
 		C3.Plugins.Sprite.Acts.SetVisible,
 		C3.Plugins.Sprite.Acts.SetPos,
-		C3.Plugins.System.Cnds.Compare,
-		C3.Plugins.Text.Exps.Text,
-		C3.Plugins.TextBox.Cnds.OnTextChanged,
-		C3.Plugins.Browser.Acts.GoToURL,
 		C3.Plugins.AJAX.Cnds.OnProgress,
 		C3.Plugins.AJAX.Cnds.OnComplete,
 		C3.Plugins.AJAX.Exps.LastData
@@ -703,7 +699,8 @@ self.C3_JsPropNameTable = [
 	{ca1cd3c3055991bf20499ee86739f7e2: 0},
 	{SECONDSPERTICK: 0},
 	{s: 0},
-	{web_app_url: 0}
+	{web_app_url: 0},
+	{DOMAIN_SCORES: 0}
 ];
 
 "use strict";
@@ -833,41 +830,18 @@ self.C3_JsPropNameTable = [
 			const v0 = p._GetNode(0).GetVar();
 			return () => v0.GetValue();
 		},
-		p => {
-			const v0 = p._GetNode(0).GetVar();
-			const f1 = p._GetNode(1).GetBoundMethod();
-			const n2 = p._GetNode(2);
-			return () => ((v0.GetValue() + "?name=") + f1(n2.ExpObject()));
-		},
-		p => {
-			const v0 = p._GetNode(0).GetVar();
-			const v1 = p._GetNode(1).GetVar();
-			return () => and((v0.GetValue() + "&score="), v1.GetValue());
-		},
-		p => {
-			const v0 = p._GetNode(0).GetVar();
-			const n1 = p._GetNode(1);
-			return () => ((v0.GetValue() + "&email=") + n1.ExpObject());
-		},
-		p => {
-			const v0 = p._GetNode(0).GetVar();
-			const n1 = p._GetNode(1);
-			return () => ((v0.GetValue() + "&phone=") + n1.ExpObject());
-		},
 		() => "senddata",
-		() => "",
-		() => "GET",
-		() => 253,
-		() => 660,
 		p => {
 			const n0 = p._GetNode(0);
-			return () => n0.ExpObject();
+			const v1 = p._GetNode(1).GetVar();
+			const n2 = p._GetNode(2);
+			const n3 = p._GetNode(3);
+			return () => ((((and(((("https://c3tutorial.000webhostapp.com/" + "savescores.php?name=") + n0.ExpObject()) + "&score="), v1.GetValue()) + "&email=") + n2.ExpObject()) + "&phone=") + n3.ExpObject());
 		},
-		() => 15,
-		() => 608,
+		() => "",
+		() => "POST",
 		() => 255,
 		() => 499,
-		() => "https://pages.daraz.pk/wow/i/pk/campaigns/happy-shopping-flappy-daz?hybrid=1",
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
 			return () => f0();
