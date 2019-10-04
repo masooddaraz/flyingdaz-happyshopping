@@ -699,7 +699,6 @@ self.C3_JsPropNameTable = [
 	{ca1cd3c3055991bf20499ee86739f7e2: 0},
 	{SECONDSPERTICK: 0},
 	{s: 0},
-	{web_app_url: 0},
 	{DOMAIN_SCORES: 0}
 ];
 
@@ -836,7 +835,7 @@ self.C3_JsPropNameTable = [
 			const v1 = p._GetNode(1).GetVar();
 			const n2 = p._GetNode(2);
 			const n3 = p._GetNode(3);
-			return () => ((((and(((("https://c3tutorial.000webhostapp.com/" + "savescores.php?name=") + n0.ExpObject()) + "&score="), v1.GetValue()) + "&email=") + n2.ExpObject()) + "&phone=") + n3.ExpObject());
+			return () => ((((and(((("https://www.darazgames.com/" + "savescores.php?name=") + n0.ExpObject()) + "&score="), v1.GetValue()) + "&email=") + n2.ExpObject()) + "&phone=") + n3.ExpObject());
 		},
 		() => "",
 		() => "POST",
