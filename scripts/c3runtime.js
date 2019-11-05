@@ -638,7 +638,6 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Sprite.Cnds.OnDestroyed,
 		C3.Plugins.System.Acts.AddVar,
 		C3.Plugins.AJAX.Acts.Post,
-		C3.Plugins.System.Exps.urlencode,
 		C3.Plugins.TextBox.Exps.Text,
 		C3.Plugins.Text.Acts.SetVisible,
 		C3.Plugins.TextBox.Cnds.OnTextChanged,
@@ -836,15 +835,14 @@ self.C3_JsPropNameTable = [
 			return () => v0.GetValue();
 		},
 		() => "senddata",
-		() => "https://www.darazgames.com/savescores.php",
 		p => {
-			const f0 = p._GetNode(0).GetBoundMethod();
-			const n1 = p._GetNode(1);
-			const v2 = p._GetNode(2).GetVar();
+			const n0 = p._GetNode(0);
+			const v1 = p._GetNode(1).GetVar();
+			const n2 = p._GetNode(2);
 			const n3 = p._GetNode(3);
-			const n4 = p._GetNode(4);
-			return () => f0(((((and((("?name=" + n1.ExpObject()) + "&score="), v2.GetValue()) + "&email=") + n3.ExpObject()) + "&phone=") + n4.ExpObject()));
+			return () => ((((and(((("https://www.darazgames.com/" + "savescores.php?name=") + n0.ExpObject()) + "&score="), v1.GetValue()) + "&email=") + n2.ExpObject()) + "&phone=") + n3.ExpObject());
 		},
+		() => "",
 		() => "POST",
 		() => 255,
 		() => 499,
